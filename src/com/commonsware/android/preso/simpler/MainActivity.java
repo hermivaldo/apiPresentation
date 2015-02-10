@@ -42,6 +42,11 @@ public class MainActivity extends Activity implements
     setContentView(R.layout.activity_main);
     helper=new PresentationHelper(this, this);
   }
+  /*
+   * Caso os métodos onResume() e onPause()
+   * não forem reescritos o conteúdo da segunda
+   * tela não aparecerá.
+   */
 
   @Override
   public void onResume() {
@@ -70,7 +75,7 @@ public class MainActivity extends Activity implements
      * Removido para verificar se o layout poderia ser inflado
      * em qualquer parte do sistema
      */
-    //preso.show();
+    preso.show();
   }
   
   
@@ -108,6 +113,13 @@ public class MainActivity extends Activity implements
     SimplerPresentation(Context ctxt, Display display) {
       super(ctxt, display);
     }
- 
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+    	// TODO Auto-generated method stub
+    	super.onCreate(savedInstanceState);
+    	
+    	setContentView(R.layout.exemplo);
+    }
   }
 }
